@@ -1,0 +1,82 @@
+.article{
+	background:	#AAAAAA;
+	height:800px;
+	position: relative;
+}
+.content {
+	width:800px;
+	height:95%;
+	border:2px soild #000;
+	background:#FFFFFF;
+	margin: 20px auto;
+	top: 0; left: 0; bottom: 0; right: 0; 
+	position: absolute;
+}
+.content_info {
+	margin:70px 30px;
+}
+.content_title {
+	text-align:center;
+	font-size:35px;
+	font-weight:bold;
+	margin-bottom:50px;
+}
+.student_info {
+	width:740px;
+	
+}
+
+.student_left_info {
+	margin-left:100px;
+	width:200px;
+	font-size:20px;
+	float:left;
+}
+.student_title {
+	float:left;
+}
+.student_center_info {
+	width:200px;
+	font-size:20px;
+	float:left;
+}
+.student_right_info{
+	position:relative;
+	font-size:20px;
+}
+.student_inline {
+	margin-top:10px;
+}
+.student_left_two {
+	margin-left:100px;
+	width:250px;
+	font-size:20px;
+	float:left;
+}
+.student_no {
+	margin-top:3px;
+}
+.student_tel {
+	margin-top:3px;
+}
+.hr {
+	width:700px;
+	height:5px;
+	background:#000;
+	margin: 20px auto;
+}
+.list_title {
+	font-size:35px;
+	font-weight:bold;
+	margin-left:50px;
+	margin-bottom:20px;
+}
+.list_content {
+	margin-left:100px;
+	font-size:20px;
+}
+.expert_info {
+	margin-left:100px;
+	font-size:20px;
+}
+

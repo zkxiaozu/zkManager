@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zkmanager.dao.RoadRecordDao">
+	<resultMap type="com.zkmanager.po.RoadRecord" id="resultMap">
+		<id property="id" column="id" />
+		<result property="parentId" column="parent_id"/>
+		<result property="sendDate" column="senddate"/>
+		<result property="roading" column="roading"/>
+		<result property="isChecked" column="ischecked"/>
+		<result property="stage" column="stage"/>
+	</resultMap>	
+	
+	<select id="findTodayRoadRecord" resultMap="resultMap">
+		select * from road_record where parent_id=#{parentId} and senddate like '${sendDate}%' and ischecked=1
+	</select>
+	
+	<select id="findWeekRoadRecord" resultMap="resultMap">
+		select * from road_record where parent_id=#{parentId} and ischecked=1 order by senddate desc limit 7
+	</select>
+	
+	<select id="findMonthRoadRecord" resultMap="resultMap">
+		select * from road_record where parent_id=#{parentId} and ischecked=1 order by senddate desc limit 30
+	</select>
+
+	<insert id="addRoadRecord" parameterType="com.zkmanager.po.RoadRecord">
+		insert into road_record(parent_id,id,senddate,roading,ischecked,stage)
+		 values(#{parentId},#{id},#{sendDate},#{roading},#{isChecked},#{stage})
+	</insert>
+	
+	<select id="checkRepeatDate" resultMap="resultMap">
+		select * from road_record where parent_id=#{parentId} and senddate like '${sendDate}%'
+	</select>
+	
+	<select id="findStageById" resultType="java.lang.String">
+		select stage from road_record where id=#{id}
+	</select>
+	
+	<select id="findFirstCheckNumByParentId" resultType="java.lang.Integer">
+		select count(*) from road_record where parent_id=#{parentId} and stage=#{stage}
+	</select>
+
+	<select id="findSecondCheckNumByParentId" resultType="java.lang.Integer">
+		select count(*) from road_record where parent_id=#{parentId} and stage=#{stage}
+	</select>
+	
+	<select id="findFirstAuditInfo" resultMap="resultMap">
+		select * from road_record where parent_id=#{parentId} and stage='钻探单位或工点' limit 1
+	</select>
+	
+	<select id="findSecondAuditInfo" resultMap="resultMap">
+		select * from road_record where parent_id=#{parentId} and stage='地质组' limit 1
+	</select>
+	
+	<select id="findSecondAllAuditInfo" resultMap="resultMap">
+		select * from road_record where parent_id=#{parentId} and stage='地质组'  
+	</select>
+	
+	<select id="checkAuditRecordExist" resultMap="resultMap">
+		select * from road_record where parent_id=#{parentId} and senddate=#{sendDate} and stage=#{stage}
+	</select>
+	
+	<update id="passFirstAuditById" parameterType="com.zkmanager.po.RoadRecord">
+		update road_record set stage='地质组',roading=#{roading}  where id=#{id}
+	</update>
+	
+	<update id="passSecondDynamicAudit" parameterType="com.zkmanager.po.RoadRecord">
+		update road_record set stage='通过',ischecked=1 where id=#{id}
+	</update>
+	
+	<update id="passSecondAuditById" parameterType="com.zkmanager.po.RoadRecord">
+		update road_record set stage='通过',ischecked=1,roading=#{roading} where id=#{id}
+	</update>
+	
+	<update id="backAuditById" parameterType="com.zkmanager.po.RoadRecord">
+		update road_record set stage='退回'  where id=#{id}
+	</update>
+	
+	<select id="checkDynamicAuditRecordExist" resultMap="resultMap">
+		select * from road_record where id=#{id} and stage='地质组'
+	</select>
+	
+	<select id="findAllPassAuditInfo" resultMap="resultMap">
+		select * from road_record where parent_id=#{parentId} and stage='通过' and ischecked=1
+	</select>
+	
+	<select id="findAllBackAuditInfo" resultMap="resultMap">
+		select * from road_record where parent_id=#{parentId} and stage='退回' 
+	</select>
+	
+	<select id="findNotPassedRoadRecord" resultMap="resultMap">
+		select * from road_record where parent_id=#{parentId} and senddate like '${sendDate}%' order by id desc
+	</select>
+	
+</mapper>

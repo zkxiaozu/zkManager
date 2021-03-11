@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zkmanager.dao.GeoGroupDao">
+	<resultMap type="GeoGroup" id="geoGroupMapper">
+		<id property="id" column="id"/>
+		<result property="parentId" column="parent_id"/>
+		<result property="name" column="name"/>
+		<result property="fullName" column="fullname"/>
+		<result property="length" column="length"/>
+		<result property="contactorId" column="contactor_id"/>
+	</resultMap>
+	
+	
+	<select id="queryGeoGroupById" parameterType="INTEGER" resultMap="geoGroupMapper">
+		select * from geo_group where id = #{id}
+	</select>
+
+	<select id="queryGeoGroupsByBigProId" parameterType="INTEGER" resultMap="geoGroupMapper">
+		select * from geo_group where parent_id = #{bigProId}
+	</select>
+	
+	
+</mapper>
+

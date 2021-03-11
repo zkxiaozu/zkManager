@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zkmanager.dao.StatisticianDao">
+	<resultMap type="com.zkmanager.po.Statistician" id="resultMap">
+		<id property="id" column="id" />
+		<result property="parentId" column="parent_id"/>
+		<result property="type" column="type"/>
+		<result property="zkm" column="zkm"/>
+		<result property="zkmSum" column="zkm_sum"/>
+		<result property="zkg" column="zkg"/>
+		<result property="zkgSum" column="zkg_sum"/>
+		<result property="klm" column="klm"/>
+		<result property="klmSum" column="klm_sum"/>
+		<result property="klg" column="klg"/>
+		<result property="klgSum" column="klg_sum"/>
+		<result property="xlm" column="xlm"/>
+		<result property="xlmSum" column="xlm_sum"/>
+		<result property="xlt" column="xlt"/>
+		<result property="xltSum" column="xlt_sum"/>
+	</resultMap>	
+	
+	<select id="findStatisticianByParentIdAndType" resultMap="resultMap">
+		select * from statistician where parent_id=#{parentId} and type=#{type}
+	</select>
+	
+	<select id="queryStatisticianMapByParentId" parameterType="INTEGER" resultType="Map">
+		select * from statistician where parent_id = #{parentId}
+	</select>
+	
+</mapper>	
+	
+

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zkmanager.dao.HoleDao">
+	<resultMap type="com.zkmanager.po.Hole" id="resultMap">
+		<id property="id" column="id" />
+		<result property="parentId" column="parent_id" />
+		<result property="parentId2" column="parent2_id" />
+		<result property="name" column="name"/>
+		<result property="type" column="type"/>
+		<result property="designDeep" column="design_deep"/>
+		<result property="designOffset" column="design_offset"/>
+		<result property="designRoadLength" column="design_roadlength"/>
+		<result property="x" column="x"/>
+		<result property="y" column="y"/>
+		<result property="z" column="z"/>
+		<result property="railFootage" column="rail_footage"/>
+		<result property="railLength" column="rail_length"/>
+		<result property="railDepth" column="rail_depth"/>
+		<result property="railState" column="rail_state"/>
+	</resultMap>	
+
+	<select id="findHoleById" resultMap="resultMap">
+		select * from zk where id=#{id}
+	</select>
+	
+	<select id="findHoleByParentId" resultMap="resultMap">
+		select * from zk where parent_id=#{parentId}
+	</select>
+	
+	<select id="findHoleByParentId2" resultMap="resultMap">
+		select * from zk where parent2_id=#{parentId2}
+	</select>
+
+	<update id="updateRailLength" parameterType="com.zkmanager.po.Hole">
+		update zk set rail_length=#{railLength} where id=#{id}
+	</update>
+	
+	<update id="updateRailDepth" parameterType="com.zkmanager.po.Hole">
+		update zk set rail_depth=#{railDepth} where id=#{id}
+	</update>
+	
+	<update id="updateRailState" parameterType="com.zkmanager.po.Hole">
+		update zk set rail_state=#{railState} where id=#{id}
+	</update>
+	
+	<update id="updateRailFootage" parameterType="com.zkmanager.po.Hole">
+		update zk set rail_footage=#{railFootage} where id=#{id}
+	</update>
+	
+	<update id="updateDepthAndFootage" parameterType="com.zkmanager.po.Hole">
+		update zk set rail_depth=#{railDepth},rail_footage=#{railFootage} where id=#{id}
+	</update>
+	
+</mapper>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zkmanager.dao.ObjectDao">
+	<resultMap type="com.zkmanager.po.ObjectTable" id="resultMap">
+		<id property="id" column="id" />
+		<result property="type" column="type"/>
+	</resultMap>	
+	
+	<select id="findTypeById" resultMap="resultMap">
+		select * from object where id=#{id}
+	</select>
+	
+	<insert id="addObject" parameterType="com.zkmanager.po.ObjectTable">
+		insert into object(type) values(#{type})
+	</insert>
+	
+	<select id="findNewObject" resultMap="resultMap">
+		select * from object order by id desc limit 1
+	</select>
+	
+</mapper>

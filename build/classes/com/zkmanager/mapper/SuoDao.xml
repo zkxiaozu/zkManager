@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zkmanager.dao.SuoDao">
+	<resultMap type="com.zkmanager.po.Suo" id="resultMap">
+		<id property="id" column="id"/>
+		<result property="parentId" column="parent_id"/>
+		<result property="name" column="name"/>
+		<result property="fullName" column="fullname"/>
+		<result property="contactorId" column="contactor_id"/>
+	</resultMap>
+
+	<select id="querySuosByYuanId" parameterType="INTEGER" resultMap="resultMap">
+		select * from suo where parent_id = #{parentId}
+	</select>
+	
+	
+	
+</mapper>

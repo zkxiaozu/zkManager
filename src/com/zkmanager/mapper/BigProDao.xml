@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zkmanager.dao.BigProDao">
+	<resultMap type="BigPro" id="bigProMapper">
+		<id property="id" column="id" />
+		<result property="parentId" column="parent_id" />
+		<result property="name" column="name" />
+		<result property="fullName" column="fullname" />
+		<result property="contactorId" column="contactor_id" />
+	</resultMap>
+
+	<select id="queryBigProById" parameterType="INTEGER" resultMap="bigProMapper">
+		select * from big_pro where id = #{id}
+	</select>
+
+	<select id="queryBigProsBySuoId" parameterType="INTEGER" resultMap="bigProMapper">
+		select * from big_pro where parent_id = #{parentId}
+	</select>
+
+</mapper>

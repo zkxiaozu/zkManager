@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<package name="com.zkmanager.po" />
+	</typeAliases>
+	<mappers>
+		<mapper resource="com/zkmanager/mapper/PersonDao.xml"/>
+		<mapper resource="com/zkmanager/mapper/ObjectDao.xml"/>
+		<mapper resource="com/zkmanager/mapper/HoleDao.xml"/>
+		<mapper resource="com/zkmanager/mapper/RoadRecordDao.xml"/>
+		<mapper resource="com/zkmanager/mapper/DrillingRecordDao.xml"/>
+		<mapper resource="com/zkmanager/mapper/StateRecordDao.xml"/>
+		<mapper resource="com/zkmanager/mapper/DrillingUnitDao.xml"/>
+		<mapper resource="com/zkmanager/mapper/WorkPointDao.xml"/>
+		<mapper resource="com/zkmanager/mapper/StatisticianDao.xml"/>
+		<mapper resource="com/zkmanager/mapper/SuoDao.xml"/>
+		<mapper resource="com/zkmanager/mapper/BigProDao.xml"/>
+		<mapper resource="com/zkmanager/mapper/GeoGroupDao.xml"/>
+	</mappers>	
+</configuration>
