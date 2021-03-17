@@ -73,6 +73,5 @@ public class BigProController {
 		bigProInfo.setMsg("查询失败");
 		return bigProInfo;
 	}
-	
 }
 
