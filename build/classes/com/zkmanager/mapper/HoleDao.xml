@@ -52,4 +52,29 @@
 		update zk set rail_depth=#{railDepth},rail_footage=#{railFootage} where id=#{id}
 	</update>
 	
+	<insert id="insertHoles" parameterType="java.util.List">
+		insert into zk(parent_id,parent_id2,id,name,type,design_deep,design_offset,
+		design_roadlength,x,y,z,rail_footage,rail_length,rail_depth,rail_state) 
+		values 
+		<foreach collection="list" item="item" index="index" open="" separator="," close="">
+		(
+			#{item.parentId},
+			#{item.parentId2},
+			#{item.id},
+			#{item.name},
+			#{item.type},
+			#{item.designDeep},
+			#{item.designOffset},
+			#{item.designRoadLength},
+			#{item.x},
+			#{item.y},
+			#{item.z},
+			#{item.railFootage},
+			#{item.railLength},
+			#{item.railDepth},
+			#{item.railState}
+		)
+		</foreach>
+	</insert>
+	
 </mapper>

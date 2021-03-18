@@ -22,4 +22,6 @@ public interface HoleService {
 	public boolean updateRailFootage(double railFootage,int id);
 	
 	public boolean updateDepthAndFootage(double railDepth, double railFootage, int id);
+	
+	public boolean insertHoles(List<Hole> holeList);
 }

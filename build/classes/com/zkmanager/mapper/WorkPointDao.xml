@@ -19,4 +19,6 @@
 		select * from little_pro where parent_id=#{parentId}
 	</select>
 	
+	<select id="findWorkPointByName" resultMap="resultMap"></select>
+	
 </mapper>

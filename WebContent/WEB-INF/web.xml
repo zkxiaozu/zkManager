@@ -54,4 +54,14 @@
   	<url-pattern>/*</url-pattern>
   </filter-mapping>
   
+  <!-- 跨域过滤器 -->
+	<filter>  
+	    <filter-name>corsFilter</filter-name>  
+	    <filter-class>com.zkmanager.utils.CorsFilter</filter-class>
+	</filter>
+	<filter-mapping>
+	    <filter-name>corsFilter</filter-name>
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
+  
 </web-app>

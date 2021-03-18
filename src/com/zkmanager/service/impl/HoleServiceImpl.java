@@ -96,4 +96,15 @@ public class HoleServiceImpl implements HoleService {
 		}
 		return false;
 	}
+
+	@Override
+	public boolean insertHoles(List<Hole> holeList) {
+		// TODO Auto-generated method stub
+		boolean result = this.holeDao.insertHoles(holeList);
+		if(result) {
+			return true;
+		}
+		return false;
+	}
+	
 }

@@ -23,5 +23,7 @@ public interface HoleDao {
 	
 	public boolean updateDepthAndFootage(@Param("railDepth") double railDepth
 			,@Param("railFootage") double railFootage, @Param("id") int id);
+	
+	public boolean insertHoles(@Param("holeList") List<Hole> holeList);
 
 }
