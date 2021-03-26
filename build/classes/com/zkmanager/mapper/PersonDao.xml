@@ -18,6 +18,10 @@
 	<select id="findContactorById" resultMap="resultMap">
 		select * from person where id=#{id}
 	</select>
+	
+	<select id="findIdByName">
+		select id from person where name=#{name}
+	</select>
 
 	
 </mapper>

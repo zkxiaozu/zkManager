@@ -34,5 +34,14 @@ public class PersonServiceImpl implements PersonService {
 		}
 		return null;
 	}
+
+	@Override
+	public Integer findIdByName(String name) {
+		// TODO Auto-generated method stub
+		Integer id = this.personDao.findIdByName(name);
+		return id;
+	}
+	
+	
 	
 }

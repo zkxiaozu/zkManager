@@ -15,8 +15,14 @@
 		insert into object(type) values(#{type})
 	</insert>
 	
+	<insert id="insertObject" parameterType="com.zkmanager.po.ObjectTable" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+		insert into object(type) values(#{objectTable.type})
+	</insert>
+	
 	<select id="findNewObject" resultMap="resultMap">
 		select * from object order by id desc limit 1
 	</select>
+	
+
 	
 </mapper>

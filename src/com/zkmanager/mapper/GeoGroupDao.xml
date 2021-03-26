@@ -20,6 +20,9 @@
 		select * from geo_group where parent_id = #{bigProId}
 	</select>
 	
+	<select id="findGeoGroupIdByContactorId" resultType="INTEGER">
+		select id from geo_group where contactor_id = #{contactorId}
+	</select>
 	
 </mapper>
 

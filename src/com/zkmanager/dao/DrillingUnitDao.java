@@ -11,4 +11,9 @@ public interface DrillingUnitDao {
 	public DrillingUnit findDrillingUnitById(@Param("id") int id);
 	
 	public List<DrillingUnit> findDrillingUnitByParentId(@Param("parentId") int parentId);
+	
+	public Integer findDrillingUnitIdByFullName(@Param("fullname") String fullname);
+	
+	public Integer findParentIdByFullName(@Param("fullname") String fullname);
+	
 }

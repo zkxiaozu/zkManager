@@ -36,5 +36,21 @@ public class DrillingUnitServiceImpl implements DrillingUnitService {
 		return result;
 	}
 
+	@Override
+	public Integer findDrillingUnitIdByFullName(String fullname) {
+		// TODO Auto-generated method stub
+		Integer id = drillingUnitDao.findDrillingUnitIdByFullName(fullname);
+		return id;
+	}
+
+	@Override
+	public Integer findParentIdByFullName(String fullname) {
+		// TODO Auto-generated method stub
+		Integer parentId = drillingUnitDao.findParentIdByFullName(fullname);
+		return parentId;
+	}
+
+	
+	
 	
 }

@@ -19,6 +19,10 @@
 		select * from little_pro where parent_id=#{parentId}
 	</select>
 	
-	<select id="findWorkPointByName" resultMap="resultMap"></select>
+	<select id="findWorkPointIdByFullName" resultType="INTEGER" parameterType="java.lang.String">
+		select id from little_pro where fullname = #{fullname}
+	</select>
+	
+	
 	
 </mapper>

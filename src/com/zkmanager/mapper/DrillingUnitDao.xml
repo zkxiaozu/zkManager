@@ -19,4 +19,13 @@
 		select * from unit where parent_id=#{parentId}
 	</select>
 	
+	<select id="findDrillingUnitIdByFullName" resultType="INTEGER" parameterType="java.lang.String">
+		select id from unit where fullname=#{fullname}
+	</select>
+	
+	<select id="findParentIdByFullName">
+		select parent_id from unit where fullname=#{fullname}
+	</select>
+	
+	
 </mapper>

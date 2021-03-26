@@ -10,8 +10,9 @@ public class Mission {
 	private Double designDeep;//设计深度
 	private String type;//类型
 	private String receiver;//接收单位
+	private String designer;//设计负责人
 	public Mission(String zkNum, String littleProName, Double railLength, Double designOffset, Double x, Double y,
-			Double designDeep, String type, String receiver) {
+			Double designDeep, String type, String receiver, String designer) {
 		super();
 		this.zkNum = zkNum;
 		this.littleProName = littleProName;
@@ -22,6 +23,7 @@ public class Mission {
 		this.designDeep = designDeep;
 		this.type = type;
 		this.receiver = receiver;
+		this.designer = designer;
 	}
 	public Mission() {
 		super();
@@ -80,6 +82,11 @@ public class Mission {
 	public void setReceiver(String receiver) {
 		this.receiver = receiver;
 	}
-	
+	public String getDesigner() {
+		return designer;
+	}
+	public void setDesigner(String designer) {
+		this.designer = designer;
+	}
 	
 }

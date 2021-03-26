@@ -45,4 +45,17 @@ public class ObjectServiceImpl implements ObjectService {
 		return null;
 	}
 
+	@Override
+	@Transactional
+	public Integer insertObject(String type) {
+		// TODO Auto-generated method stub
+		ObjectTable objectTable = new ObjectTable();
+		objectTable.setType(type);
+		if(this.objectDao.insertObject(objectTable) > 0) {
+			return objectTable.getId();
+		}
+		return null;
+	}
+	
+	
 }

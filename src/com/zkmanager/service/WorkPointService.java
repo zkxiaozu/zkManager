@@ -10,4 +10,6 @@ public interface WorkPointService {
 	public WorkPoint findWorkPointById(int id);
 	
 	public List<WorkPoint> findWorkPointByParentId(int parentId);
+	
+	public Integer findWorkPointIdByFullName(String fullname);
 }

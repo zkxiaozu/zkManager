@@ -2,12 +2,16 @@ package com.zkmanager.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.zkmanager.po.GeoGroup;
 
 public interface GeoGroupDao {
-	//´ÓÏîÄ¿¼¶²éÕÒËùÓĞÊôÓÚ¸ÃÏîÄ¿×éµÄµØÖÊ×é
+	//ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½
 	public abstract List<GeoGroup> queryGeoGroupsByBigProId(Integer bigProId);
 	
-	//¸ù¾İid²éµØÖÊ×é
+	//ï¿½ï¿½ï¿½ï¿½idï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public abstract GeoGroup queryGeoGroupById(Integer id);
+	
+	public Integer findGeoGroupIdByContactorId(@Param("contactorId") Integer contactorId);
 }

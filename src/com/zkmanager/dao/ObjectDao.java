@@ -10,5 +10,7 @@ public interface ObjectDao {
 	
 	public boolean addObject(@Param("type") String type);
 	
+	public Integer insertObject(@Param("objectTable") ObjectTable objectTable);
+	
 	public ObjectTable findNewObject();
 }

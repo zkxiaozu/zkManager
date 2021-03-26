@@ -35,5 +35,11 @@ public class WorkPointServiceImpl implements WorkPointService {
 		return result;
 	}
 
+	@Override
+	public Integer findWorkPointIdByFullName(String fullname) {
+		// TODO Auto-generated method stub
+		Integer id = workPointDao.findWorkPointIdByFullName(fullname);
+		return id;
+	}
 	
 }

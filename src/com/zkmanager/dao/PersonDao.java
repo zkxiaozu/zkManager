@@ -10,4 +10,6 @@ public interface PersonDao {
 	
 	public Person findContactorById(@Param("id") int id);
 	
+	public Integer findIdByName(@Param("name") String name);
+	
 }

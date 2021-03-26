@@ -12,5 +12,5 @@ public interface WorkPointDao {
 	
 	public List<WorkPoint> findWorkPointByParentId(@Param("parentId") int parentId);
 	
-	public WorkPoint findWorkPointByName(@Param("name") String name);
+	public Integer findWorkPointIdByFullName(@Param("fullname") String fullname);
 }
