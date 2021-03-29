@@ -24,4 +24,29 @@ public interface HoleService {
 	public boolean updateDepthAndFootage(double railDepth, double railFootage, int id);
 	
 	public boolean insertHoles(List<Hole> holeList);
+	
+public double countZkm(int parentId, String type);
+	
+	public double countZkmSum(int parentId, String type);
+	
+	public Integer countZkg(int parentId, String type);
+	
+	public int countZkgSum(int parentId, String type);
+	
+	public double countXlm(int parentId, String type);
+	
+	public double countXlmSum(int parentId, String type);
+	
+	
+	public double countZkmPoint(int parentId2, String type);
+	
+	public double countZkmSumPoint(int parentId2, String type);
+	
+	public Integer countZkgPoint(int parentId2, String type);
+	
+	public int countZkgSumPoint(int parentId2, String type);
+	
+	public double countXlmPoint(int parentId2, String type);
+	
+	public double countXlmSumPoint(int parentId2, String type);	
 }

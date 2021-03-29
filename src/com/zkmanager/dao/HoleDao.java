@@ -25,5 +25,42 @@ public interface HoleDao {
 			,@Param("railFootage") double railFootage, @Param("id") int id);
 	
 	public boolean insertHoles(@Param("holeList") List<Hole> holeList);
+	
+	public double countZkm(@Param("parentId") int parentId
+			, @Param("type") String type);
+	
+	public double countZkmSum(@Param("parentId") int parentId
+			, @Param("type") String type);
+	
+	public Integer countZkg(@Param("parentId") int parentId
+			, @Param("type") String type);
+	
+	public int countZkgSum(@Param("parentId") int parentId
+			, @Param("type") String type);
+	
+	public double countXlm(@Param("parentId") int parentId
+			, @Param("type") String type);
+	
+	public double countXlmSum(@Param("parentId") int parentId
+			, @Param("type") String type);
+	
+	
+	public double countZkmPoint(@Param("parentId2") int parentId2
+			, @Param("type") String type);
+	
+	public double countZkmSumPoint(@Param("parentId2") int parentId2
+			, @Param("type") String type);
+	
+	public Integer countZkgPoint(@Param("parentId2") int parentId2
+			, @Param("type") String type);
+	
+	public int countZkgSumPoint(@Param("parentId2") int parentId2
+			, @Param("type") String type);
+	
+	public double countXlmPoint(@Param("parentId2") int parentId2
+			, @Param("type") String type);
+	
+	public double countXlmSumPoint(@Param("parentId2") int parentId2
+			, @Param("type") String type);
 
 }

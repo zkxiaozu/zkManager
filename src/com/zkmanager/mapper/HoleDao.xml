@@ -77,4 +77,53 @@
 		</foreach>
 	</insert>
 	
+	<select id="countZkm" resultType="java.lang.Double" >
+		select ifnull(sum(rail_depth),0) from zk where parent_id=#{parentId} and type=#{type} and rail_state='已终孔'
+	</select>
+	
+	<select id="countZkmSum" resultType="java.lang.Double">
+		select ifnull(sum(design_deep),0) from zk where parent_id=#{parentId} and type=#{type} and rail_state='已终孔'
+	</select>
+	
+	<select id="countZkg" resultType="java.lang.Integer">
+		select ifnull(count(*),0) from zk where parent_id=#{parentId} and type=#{type} and rail_state='已终孔'
+	</select>
+	
+	<select id="countZkgSum" resultType="java.lang.Integer">
+		select ifnull(count(*),0) from zk where parent_id=#{parentId} and type=#{type}
+	</select>
+	
+	<select id="countXlm" resultType="java.lang.Double">
+		select ifnull(sum(rail_length),0) from zk where parent_id=#{parentId} and type=#{type}
+	</select>
+	
+	<select id="countXlmSum" resultType="java.lang.Double">
+		select ifnull(sum(design_roadlength),0) from zk where parent_id=#{parentId} and type=#{type}
+	</select>
+	
+	
+	<select id="countZkmPoint" resultType="java.lang.Double" >
+		select ifnull(sum(rail_depth),0) from zk where parent2_id=#{parentId2} and type=#{type} and rail_state='已终孔'
+	</select>
+	
+	<select id="countZkmSumPoint" resultType="java.lang.Double">
+		select ifnull(sum(design_deep),0) from zk where parent2_id=#{parentId2} and type=#{type} and rail_state='已终孔'
+	</select>
+	
+	<select id="countZkgPoint" resultType="java.lang.Integer">
+		select ifnull(count(*),0) from zk where parent2_id=#{parentId2} and type=#{type} and rail_state='已终孔'
+	</select>
+	
+	<select id="countZkgSumPoint" resultType="java.lang.Integer">
+		select ifnull(count(*),0) from zk where parent2_id=#{parentId2} and type=#{type}
+	</select>
+	
+	<select id="countXlmPoint" resultType="java.lang.Double">
+		select ifnull(sum(rail_length),0) from zk where parent2_id=#{parentId2} and type=#{type}
+	</select>
+	
+	<select id="countXlmSumPoint" resultType="java.lang.Double">
+		select ifnull(sum(design_roadlength),0) from zk where parent2_id=#{parentId2} and type=#{type}
+	</select>
+	
 </mapper>

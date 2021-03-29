@@ -107,4 +107,88 @@ public class HoleServiceImpl implements HoleService {
 		return false;
 	}
 	
+	@Override
+	public double countZkm(int parentId, String type) {
+		// TODO Auto-generated method stub
+		double result = this.holeDao.countZkm(parentId, type);
+		return result;
+	}
+
+	@Override
+	public double countZkmSum(int parentId, String type) {
+		// TODO Auto-generated method stub
+		double result = this.holeDao.countZkmSum(parentId, type);
+		return result;
+	}
+
+	@Override
+	public Integer countZkg(int parentId, String type) {
+		// TODO Auto-generated method stub
+		Integer result = this.holeDao.countZkg(parentId, type);
+		return result;
+	}
+
+	@Override
+	public int countZkgSum(int parentId, String type) {
+		// TODO Auto-generated method stub
+		int result = this.holeDao.countZkgSum(parentId, type);
+		return result;
+	}
+
+	@Override
+	public double countXlm(int parentId, String type) {
+		// TODO Auto-generated method stub
+		double result = this.holeDao.countXlm(parentId, type);
+		return result;
+	}
+
+	@Override
+	public double countXlmSum(int parentId, String type) {
+		// TODO Auto-generated method stub
+		double result = this.holeDao.countXlmSum(parentId, type);
+		return result;
+	}
+	
+	@Override
+	public double countZkmPoint(int parentId2, String type) {
+		// TODO Auto-generated method stub
+		double result = this.holeDao.countZkmPoint(parentId2, type);
+		return result;
+	}
+
+	@Override
+	public double countZkmSumPoint(int parentId2, String type) {
+		// TODO Auto-generated method stub
+		double result = this.holeDao.countZkmSumPoint(parentId2, type);
+		return result;
+	}
+
+	@Override
+	public Integer countZkgPoint(int parentId2, String type) {
+		// TODO Auto-generated method stub
+		Integer result = this.holeDao.countZkgPoint(parentId2, type);
+		return result;
+	}
+
+	@Override
+	public int countZkgSumPoint(int parentId2, String type) {
+		// TODO Auto-generated method stub
+		int result = this.holeDao.countZkgSumPoint(parentId2, type);
+		return result;
+	}
+
+	@Override
+	public double countXlmPoint(int parentId2, String type) {
+		// TODO Auto-generated method stub
+		double result = this.holeDao.countXlmPoint(parentId2, type);
+		return result;
+	}
+
+	@Override
+	public double countXlmSumPoint(int parentId2, String type) {
+		// TODO Auto-generated method stub
+		double result = this.holeDao.countXlmSumPoint(parentId2, type);
+		return result;
+	}
+	
 }

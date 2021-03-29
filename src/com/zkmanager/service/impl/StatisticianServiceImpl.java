@@ -1,6 +1,5 @@
 package com.zkmanager.service.impl;
 
-import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -8,13 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.zkmanager.dao.DrillingRecordDao;
 import com.zkmanager.dao.StatisticianDao;
-import com.zkmanager.po.DrillingRecord;
-import com.zkmanager.po.RoadRecord;
 import com.zkmanager.po.Statistician;
-import com.zkmanager.service.DrillingRecordService;
-import com.zkmanager.service.RoadRecordService;
 import com.zkmanager.service.StatisticianService;
 
 @Service("statisticianService")
@@ -42,6 +36,20 @@ public class StatisticianServiceImpl implements StatisticianService {
 			return statisticianMap;
 		}
 		return null;
+	}
+
+	@Override
+	public List<Statistician> findAllStatistician() {
+		// TODO Auto-generated method stub
+		List<Statistician> result = statisticianDao.findAllStatistician();
+		return result;
+	}
+
+	@Override
+	public boolean updateDataById(int id, double zkm, double zkmSum, int zkg, int zkgSum, double xlm, double xlmSum) {
+		// TODO Auto-generated method stub
+		boolean result = this.statisticianDao.updateDataById(id, zkm, zkmSum, zkg, zkgSum, xlm, xlmSum);
+		return result;
 	}
 
 	

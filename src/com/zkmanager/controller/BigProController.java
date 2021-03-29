@@ -18,32 +18,32 @@ import com.zkmanager.service.StatisticianService;
 
 @Controller
 public class BigProController {
-	
+
 	@Autowired
 	private BigProService bigProService;
-	
+
 	@Autowired
 	private PersonService personService;
-	
+
 	@Autowired
 	private StatisticianService statisticianService;
-	
+
 	@RequestMapping(value = "findBigPros", produces = "application/json")
 	@ResponseBody
-	public BigProList queryBigProsBySuoId(@RequestParam("suoId") Integer suoId){
+	public BigProList queryBigProsBySuoId(@RequestParam("suoId") Integer suoId) {
 		BigProList bigProList = new BigProList();
 		List<BigProInfo> bigProInfos = null;
 		List<BigPro> bigPros = bigProService.queryBigProsBySuoId(suoId);
 		System.out.println(bigPros.size());
-		if(bigPros != null) {
+		if (bigPros != null) {
 			bigProInfos = new ArrayList<>();
-			for(BigPro bigPro : bigPros) {
+			for (BigPro bigPro : bigPros) {
 				BigProInfo bigProInfo = new BigProInfo();
 				bigProInfo.setBigPro(bigPro);
 				bigProInfo.setContatcor(personService.findContactorById(bigPro.getContactorId()));
 				bigProInfos.add(bigProInfo);
 			}
-			
+
 			bigProList.setCode(200);
 			bigProList.setMsg("查询成功");
 			bigProList.setBigProInfos(bigProInfos);
@@ -52,16 +52,16 @@ public class BigProController {
 		bigProList.setCode(0);
 		bigProList.setMsg("该所暂无任何项目");
 		return bigProList;
-		
+
 	}
-	
+
 	@RequestMapping(value = "findBigProInfo", produces = "application/json")
 	@ResponseBody
 	public BigProInfo queryBigProInfoById(@RequestParam("bigProId") Integer id) {
 		BigProInfo bigProInfo = new BigProInfo();
 		BigPro bigPro = bigProService.queryBigProById(id);
 		System.out.println(bigPro.getParentId());
-		if(bigPro != null) {
+		if (bigPro != null) {
 			bigProInfo.setCode(200);
 			bigProInfo.setMsg("查询成功");
 			bigProInfo.setBigPro(bigPro);
@@ -74,4 +74,3 @@ public class BigProController {
 		return bigProInfo;
 	}
 }
-

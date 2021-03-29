@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>分发任务书</title>
+	<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="css/layui.css" media="all"/>
+</head>
+<body>
+	<div id="app">
+		
+		<div class="header">
+        	<h1>钻孔进度管理系统</h1>
+	     </div>
+	
+	      <div class="topnav">
+	        <a href="#">任务书</a>
+	      </div>
+	
+	      <div class="row">
+	          <div class="leftcolumn">
+	              <div class="card"  >
+	                  <p>账号：{{name}}</p>
+	                  <input type="button" value="退出" @click="exit"
+	                  	style="background-color: lightsteelblue;border: none;width: 100%;font-size: 20px;"/>  
+	              </div>
+	              
+	          </div>
+	      
+	        
+	        <div class="rightcolumn">
+	          <div class="card">
+	              <p style="font-size: 20px;">任务书</p>
+	              <hr />
+	              <div class="layui-upload">
+					  <button type="button" class="layui-btn layui-btn-normal" id="test8">选择文件</button>
+					  <button type="button" class="layui-btn" id="test9">开始上传</button>
+					</div> 
+	              
+	          </div>
+	          
+	        </div>
+	                  
+	      </div>
+	</div>
+	
+		
+	<script type = "text/javascript">
+        new Vue({
+            el: '#app',
+            data () {
+                return {
+                    name:null,
+                    password: null,
+                    savePwd: false,
+                    loginState: false,
+                }
+            },
+            created () {
+                // 在页面加载时从cookie获取登录信息
+                let name = this.getCookie("name");
+                let password = this.getCookie("password");
+                let savePwd = this.getCookie("savePwd");
+                let loginState = this.getCookie("loginState");
+                // 如果存在赋值给表单，并且将记住密码勾选
+                if(loginState==="true"){
+                    this.name = name;
+                    this.password = password;
+                    this.savePwd = savePwd;
+                    this.loginState = true;
+                }else{
+                	alert("请先登录！！！")
+                	this.loginState = false;
+                	window.location.href="/zkmanager/toLogin";
+                }
+               	
+            },
+            methods: {
+            	// 获取cookie
+                getCookie: function (key) {
+                    if (document.cookie.length > 0) {
+                        var start = document.cookie.indexOf(key + '=');
+                    if (start !== -1) {
+                        start = start + key.length + 1;
+                        var end = document.cookie.indexOf(';', start);
+                        if (end === -1) end = document.cookie.length;
+                        return unescape(document.cookie.substring(start, end));
+                    }
+                    }
+                    return '';
+                },
+                setCookie: function (cName, value, expiredays) {
+                    var exdate = new Date()
+                    exdate.setDate(exdate.getDate() + expiredays)
+                    document.cookie = cName + '=' + decodeURIComponent(value) +
+                    ((expiredays == null) ? '' : ';expires=' + exdate.toGMTString())
+                },
+                exit: function (){
+                	if(this.savePwd){
+                		this.setCookie("name",this.name,600);
+                        this.setCookie("password",this.password,600);
+                	}else{
+                		this.setCookie("name","",600);
+                        this.setCookie("password","",600);
+                	}
+                	
+                    this.setCookie("savePwd",this.savePwd,600);
+                    this.setCookie("loginState",false,600);
+                    window.location.href="/zkmanager/toLogin";
+                },
+            }
+        })
+    </script>
+    <script src="js/layui.js"></script>
+    <script>
+        layui.use('upload', function(){
+            var $ = layui.jquery
+            ,upload = layui.upload;
+            
+          //选完文件后不自动上传
+            upload.render({
+              elem: '#test8'
+              ,accept:'file'
+              ,url: 'http://120.24.221.139:8080/zkmanager/receiveFile' //改成您自己的上传接口
+              ,auto: false
+              //,multiple: true
+              ,bindAction: '#test9'
+              ,done: function(res){
+                layer.msg('上传成功');
+                console.log(res)
+              }
+            });
+        })
+    </script>
+</body>
+</html>

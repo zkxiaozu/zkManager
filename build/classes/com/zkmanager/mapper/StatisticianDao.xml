@@ -20,6 +20,10 @@
 		<result property="xltSum" column="xlt_sum"/>
 	</resultMap>	
 	
+	<select id="findAllStatistician" resultMap="resultMap">
+		select * from statistician
+	</select>
+	
 	<select id="findStatisticianByParentIdAndType" resultMap="resultMap">
 		select * from statistician where parent_id=#{parentId} and type=#{type}
 	</select>
@@ -27,6 +31,11 @@
 	<select id="queryStatisticianMapByParentId" parameterType="INTEGER" resultType="Map">
 		select * from statistician where parent_id = #{parentId}
 	</select>
+	
+	<update id="updateDataById" parameterType="com.zkmanager.po.Statistician">
+		update statistician set zkm=#{zkm},zkm_sum=#{zkmSum}
+		,zkg=#{zkg},zkg_sum=#{zkgSum},xlm=#{xlm},xlm_sum=#{xlmSum} where id=#{id}
+	</update>
 	
 </mapper>	
 	

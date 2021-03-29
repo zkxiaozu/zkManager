@@ -1,8 +1,5 @@
 package com.zkmanager.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,23 +13,38 @@ import com.zkmanager.service.PersonService;
 
 @Controller
 public class LoginController {
-	
+
 	@Autowired
 	private PersonService personService;
-	
+
 	@Autowired
 	private ObjectService objectService;
-	
-	@RequestMapping(value="/loginSystem",produces = "application/json;charset=UTF-8")
+
+	@RequestMapping("/toLogin")
+	public String toLogin() {
+		return "login";
+	}
+
+	@RequestMapping("/toIndex")
+	public String toIndex() {
+		return "index";
+	}
+
+	@RequestMapping("/toUpload")
+	public String toUpload() {
+		return "upload";
+	}
+
+	@RequestMapping(value = "/loginSystem", produces = "application/json;charset=UTF-8")
 	@ResponseBody
-	public LoginList Login(String name,String password){
+	public LoginList Login(String name, String password) {
 		System.out.println("第一行");
-		System.out.println(name+"+"+password);
+		System.out.println(name + "+" + password);
 		LoginList lList = new LoginList();
 		Person pList = personService.findPersonByNameAndPassword(name, password);
 		System.out.println("第二行");
 		System.out.println(pList);
-		if(pList != null) {
+		if (pList != null) {
 			ObjectTable object = objectService.findTypeById(pList.getId());
 			lList.setObject(object);
 			lList.setPerson(pList);
@@ -43,6 +55,5 @@ public class LoginController {
 		lList.setCode(0);
 		return lList;
 	}
-	
-	
+
 }
