@@ -13,4 +13,10 @@ public interface WorkPointDao {
 	public List<WorkPoint> findWorkPointByParentId(@Param("parentId") int parentId);
 	
 	public Integer findWorkPointIdByFullName(@Param("fullname") String fullname);
+	
+	public Boolean insertWorkPoint(@Param("workPoint") WorkPoint workPoint);
+	
+	public Integer updateWorkPoint(@Param("length") Double length, @Param("id") Integer id);
+	
+	public Double findWorkPointLengthById(@Param("id") Integer id);
 }

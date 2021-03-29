@@ -12,4 +12,10 @@ public interface WorkPointService {
 	public List<WorkPoint> findWorkPointByParentId(int parentId);
 	
 	public Integer findWorkPointIdByFullName(String fullname);
+	
+	public Boolean insertWorkPoint(WorkPoint workPoint);
+	
+	public Integer updateWorkPoint(Double length, Integer id);
+	
+	public Double findWorkPointLengthById(Integer id);
 }

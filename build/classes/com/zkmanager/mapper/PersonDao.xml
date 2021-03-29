@@ -19,7 +19,7 @@
 		select * from person where id=#{id}
 	</select>
 	
-	<select id="findIdByName">
+	<select id="findIdByName" parameterType="java.lang.String" resultType="INTEGER">
 		select id from person where name=#{name}
 	</select>
 

@@ -41,5 +41,27 @@ public class WorkPointServiceImpl implements WorkPointService {
 		Integer id = workPointDao.findWorkPointIdByFullName(fullname);
 		return id;
 	}
+
+	@Override
+	public Boolean insertWorkPoint(WorkPoint workPoint) {
+		// TODO Auto-generated method stub
+		Boolean result = workPointDao.insertWorkPoint(workPoint);
+		return result;
+	}
+
+	@Override
+	public Integer updateWorkPoint(Double length, Integer id) {
+		// TODO Auto-generated method stub
+		Integer result = workPointDao.updateWorkPoint(length, id);
+		return result;
+	}
+
+	@Override
+	public Double findWorkPointLengthById(Integer id) {
+		// TODO Auto-generated method stub
+		Double result = workPointDao.findWorkPointLengthById(id);
+		return result;
+	}
+	
 	
 }

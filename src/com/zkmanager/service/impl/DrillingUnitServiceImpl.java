@@ -50,7 +50,36 @@ public class DrillingUnitServiceImpl implements DrillingUnitService {
 		return parentId;
 	}
 
+	@Override
+	public Integer findDrillingUnitByFullName(String fullname) {
+		// TODO Auto-generated method stub
+		Integer count = drillingUnitDao.findDrillingUnitByFullName(fullname);
+		return count;
+	}
+
+	@Override
+	public Boolean insertDrillingUnit(DrillingUnit unit) {
+		// TODO Auto-generated method stub
+		Boolean isInserted = drillingUnitDao.insertDrillingUnit(unit);
+		return isInserted;
+	}
+
+	@Override
+	public Integer updateDrillingUnit(Double length, Integer id) {
+		// TODO Auto-generated method stub
+		Integer count = drillingUnitDao.updateDrillingUnit(length, id);
+		return count;
+	}
+
+	@Override
+	public Double findDrillingUnitLengthByid(Integer id) {
+		// TODO Auto-generated method stub
+		Double length = drillingUnitDao.findDrillingUnitLengthByid(id);
+		return length;
+	}
 	
 	
 	
+	
+
 }

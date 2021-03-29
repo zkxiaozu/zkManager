@@ -16,4 +16,11 @@ public interface DrillingUnitDao {
 	
 	public Integer findParentIdByFullName(@Param("fullname") String fullname);
 	
+	public Integer findDrillingUnitByFullName(@Param("fullname") String fullname);
+	
+	public Boolean insertDrillingUnit(@Param("unit") DrillingUnit unit);
+	
+	public Integer updateDrillingUnit(@Param("length") Double length,@Param("id") Integer id);
+	
+	public Double findDrillingUnitLengthByid(@Param("id") Integer id);
 }

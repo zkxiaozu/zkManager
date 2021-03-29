@@ -23,9 +23,33 @@
 		select id from unit where fullname=#{fullname}
 	</select>
 	
-	<select id="findParentIdByFullName">
+	<select id="findParentIdByFullName" resultType="INTEGER">
 		select parent_id from unit where fullname=#{fullname}
 	</select>
 	
+	<select id="findDrillingUnitByFullName" resultType="INTEGER">
+		select count(1) from unit where fullname=#{fullname}
+	</select>
+	
+	<insert id="insertDrillingUnit" parameterType="com.zkmanager.po.DrillingUnit">
+		insert into unit(parent_id,id,name,fullname,length,contactor_id) 
+		values 
+		(
+			#{unit.parentId},
+			#{unit.id},
+			#{unit.name},
+			#{unit.fullName},
+			#{unit.length},
+			#{unit.contactorId}
+		)
+	</insert>
+	
+	<update id="updateDrillingUnit">
+		update unit set length=#{length} where id=#{id}
+	</update>
+	
+	<select id="findDrillingUnitLengthByid" resultType="DOUBLE">
+		select length from unit where id=#{id}
+	</select>
 	
 </mapper>

@@ -23,6 +23,25 @@
 		select id from little_pro where fullname = #{fullname}
 	</select>
 	
+	<insert id="insertWorkPoint" parameterType="com.zkmanager.po.WorkPoint">
+		insert into little_pro(parent_id, id, name, fullname, contactor_id, length) 
+		values 
+		(
+			#{workPoint.parentId},
+			#{workPoint.id},
+			#{workPoint.name},
+			#{workPoint.fullName},
+			#{workPoint.contactorId},
+			#{workPoint.length}
+		)
+	</insert>
 	
+	<update id="updateWorkPoint">
+		update little_pro set length = #{length} where id = #{id}
+	</update>
+	
+	<select id="findWorkPointLengthById" resultType="DOUBLE">
+		select length from little_pro where id = #{id}
+	</select>
 	
 </mapper>
